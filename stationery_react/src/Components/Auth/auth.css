@@ -1,0 +1,69 @@
+.login {
+  background-color: var(--accent-color-5);
+}
+.google-box {
+  background-color: var(--accent-color-5);
+}
+.login .card-title,
+.register .card-title {
+  color: var(--secondary-color);
+}
+.login .card-title,
+.register .card-title {
+  text-decoration: var(--primary-color) double underline;
+}
+.card-body p label {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.card-body p .pwd-label {
+  padding-right: 140px;
+}
+.card-body p input {
+  width: 100%;
+  max-width: 240px;
+  padding: 8px 0;
+  padding-right: 30px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 3px solid var(--primary-color);
+  transition: all 0.3s ease;
+  outline: none;
+}
+.card-body p input:focus {
+  border-color: var(--secondary-color);
+  background-color: var(--accent-color-5);
+  border-radius: 3px;
+}
+.card-body p button {
+  width: 150px;
+  padding: 5px 20px;
+  margin: 10px 0;
+  border: 3px solid var(--primary-color);
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+p .google-btn {
+  color: var(--secondary-color);
+  width: auto;
+  border: 0;
+  padding: 10px 20px;
+}
+.card-body p .btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+p .google-btn:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 3px 3px 0px var(--primary-color);
+}
+.card-body h6 {
+  color: var(--primary-color);
+}

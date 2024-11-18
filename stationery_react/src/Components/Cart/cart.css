@@ -1,0 +1,22 @@
+.cart-container .img {
+  height: 300px !important;
+  filter: drop-shadow(3px 3px 1px var(--secondary-color));
+}
+.cart-container .empty {
+  margin-top: 5%;
+  color: var(--accent-color-3);
+  filter: drop-shadow(3px 3px 1px var(--secondary-color));
+  letter-spacing: 13px;
+  word-spacing: 36px;
+}
+
+.cart-container .heading {
+  color: var(--secondary-color);
+  filter: drop-shadow(3px 3px 1px var(--accent-color-3));
+}
+.cart-container .row-heads {
+  color: var(--accent-color-3);
+}
+
+.cart-container .quantity {
+}

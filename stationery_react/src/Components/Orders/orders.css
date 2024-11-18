@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+.order-heading h1 {
+  color: var(--accent-color-3);
+  filter: drop-shadow(3px 4px 1px var(--accent-color-4));
+  font-family: "Montserrat", sans-serif;
+}
+.order .order-num {
+  color: var(--accent-color-4);
+  filter: drop-shadow(2px 3px 1px var(--accent-color-3));
+}
+.order .total-price {
+  color: var(--accent-color-3);
+  filter: drop-shadow(2px 2px 2px var(--accent-color-4));
+  /* filter: drop-shadow(3px 2px 1px #000); */
+}
+.order .order-info {
+  color: var(--accent-color-4);
+  /* filter: drop-shadow(2px 3px 1px var(--accent-color-3)); */
+}
+.order .order-delivered {
+  color: var(--accent-color-2);
+  filter: drop-shadow(2px 1px 1px var(--accent-color-5));
+}
+.order .order-pending {
+  color: var(--secondary-color);
+  filter: drop-shadow(2px 1px 1px var(--accent-color-5));
+}
+
+.order-container .img {
+  height: 300px !important;
+  filter: drop-shadow(3px 3px 1px var(--secondary-color));
+}
+.order-container .empty {
+  margin-top: 5%;
+  color: var(--accent-color-3);
+  filter: drop-shadow(3px 3px 1px var(--secondary-color));
+  letter-spacing: 13px;
+  word-spacing: 36px;
+}
+.order-container .heading {
+  color: var(--secondary-color);
+  filter: drop-shadow(3px 3px 1px var(--accent-color-3));
+}

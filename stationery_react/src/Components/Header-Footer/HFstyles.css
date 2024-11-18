@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+.dev-name {
+  color: var(--primary-color);
+  position: relative;
+  letter-spacing: 1.5px;
+  filter: drop-shadow(0px 0px 1px var(--accent-color-5));
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+}
+.footer {
+  background-color: var(--primary-color);
+  color: var(--accent-color-5);
+  width: 100%;
+  height: 80px;
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--accent-color-5);
+}
+.nav .toggle {
+  transition: all 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+.nav .toggle:hover {
+  transform: scale(1.1);
+  color: var(--accent-color-2);
+}
+.nav a {
+  color: var(--accent-color-5);
+  text-decoration: none;
+  padding: 10px;
+}
+.nav a:hover {
+  color: var(--accent-color-2);
+}
+.nav .btn-group .btn-drop {
+  color: var(--accent-color-2);
+  background-color: #02020266;
+}
+.nav .btn-group .btn-drop:hover {
+  color: var(--accent-color-5);
+  background-color: var(--accent-color-2);
+}
+.nav .btn-group .btn-name {
+  color: var(--accent-color-5);
+  background-color: #02020266;
+}
+.collapse .w-100 {
+  transition: all 0.3s ease-out;
+}
+@media only screen and (max-width: 992px) {
+  .collapse .w-100 {
+    width: 25% !important;
+  }
+  .collapse .justify-content-end {
+    justify-content: start !important;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .collapse .w-100 {
+    width: 75% !important;
+  }
+  .collapse .justify-content-end {
+    justify-content: start !important;
+  }
+}

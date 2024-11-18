@@ -1,0 +1,13 @@
+/stationery_react/node_modules
+/stationery_react/.pnp
+/stationery_react/.pnp.js
+/stationery_react/coverage
+/stationery_react/build
+/stationery_react/.DS_Store
+/stationery_react/.env.local
+/stationery_react/.env.development.local
+/stationery_react/.env.test.local
+/stationery_react/.env
+/stationery_backend/node_modules
+/stationery_backend/.env
+/stationery_backend/.env.local

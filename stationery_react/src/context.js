@@ -29,7 +29,6 @@ const AppContextProvider = (props) => {
         console.error("Error fetching data", error);
       }
     };
-
     fetchData();
   }, [BPATH]);
   const vars = {

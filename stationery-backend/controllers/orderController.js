@@ -1,5 +1,13 @@
 import orderModel from "../models/orderModel.js";
 
+const showOrders = async (req, res) => {
+  try {
+    const orders = await orderModel.find();
+    res.status(200).json(orders);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 const CreateOrder = async (req, res) => {
   try {
     const order = new orderModel(req.body);
@@ -9,4 +17,18 @@ const CreateOrder = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-export { CreateOrder };
+
+const deleteOrder = async (req, res) => {
+  try {
+    const id = req.params.oid;
+    if (id) {
+      await orderModel.findByIdAndDelete(id);
+      res.json({ message: "Order Deleted" });
+    } else {
+      res.status(404).json({ message: "Order not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+export { CreateOrder, showOrders, deleteOrder };

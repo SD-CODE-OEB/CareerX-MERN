@@ -13,7 +13,7 @@ app.use("/static/images", express.static("static/images"));
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/admin", adminRouter);
-app.use("/order", orderRouter);
+app.use("/orders", orderRouter);
 mongoose
   .connect("mongodb://127.0.0.1:27017/ecommdb")
   .then(() => {

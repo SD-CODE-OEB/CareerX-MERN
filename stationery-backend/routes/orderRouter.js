@@ -1,11 +1,15 @@
 import express from "express";
-import { CreateOrder } from "../controllers/orderController.js";
+import {
+  CreateOrder,
+  deleteOrder,
+  showOrders,
+} from "../controllers/orderController.js";
 
 const orderRouter = express.Router();
 
-orderRouter.get("/all");
+orderRouter.get("/all", showOrders);
 orderRouter.post("/add", CreateOrder);
-orderRouter.patch("/update/:oid");
-orderRouter.delete("/delete/:oid");
+orderRouter.delete("/cancel/:oid");
+orderRouter.delete("/delete/:oid", deleteOrder);
 
 export default orderRouter;

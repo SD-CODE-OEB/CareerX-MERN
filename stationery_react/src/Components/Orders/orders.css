@@ -41,3 +41,9 @@
   color: var(--secondary-color);
   filter: drop-shadow(3px 3px 1px var(--accent-color-3));
 }
+
+.scroll-show {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  scroll-behavior: smooth;
+}

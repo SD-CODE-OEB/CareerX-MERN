@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppContext } from "../../context";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const Logout = () => {
   setLogged(false);
   setUser((prev) => ({ ...prev, name: "", email: "" }));
   Navigate(`${FPATH}/login`);
-  return <div></div>;
+  return <></>;
 };
 
 export default Logout;

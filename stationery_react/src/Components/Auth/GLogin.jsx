@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
-import { useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useGoogleLogin } from "@react-oauth/google";
-import { AppContext } from "../../context";
+import { useEffect } from "react";
 import Container from "../Container";
 import { CgGoogle } from "react-icons/cg";
+import { AppContext } from "../../context";
+import { useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { useGoogleLogin } from "@react-oauth/google";
 
 export default function GLogin() {
   const { setLogged, setUsers, setUser } = useContext(AppContext);

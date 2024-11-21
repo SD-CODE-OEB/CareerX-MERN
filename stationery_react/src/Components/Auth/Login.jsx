@@ -14,7 +14,6 @@ const Login = () => {
   const Navigate = useNavigate();
   const { user, users, setLogged, setUser } = useContext(AppContext);
   const HandleLogin = async () => {
-    console.log(user);
     await axios.post(`${BPATH}/users/signin`, user).then((res) => {
       setLogged(true);
       const current_user = users.find((u) => u.email === user.email);

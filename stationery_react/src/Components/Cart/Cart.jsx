@@ -9,30 +9,37 @@ import axios from "axios";
 
 const Cart = () => {
   const FPATH = process.env.REACT_APP_PATH;
-  const { cartItem, logged, user, setOrders, setCartItem, products } =
+  const BPATH = process.env.REACT_APP_BACKEND_APP_PATH;
+  const Navigate = useNavigate();
+  const { cartItem, logged, user, setCartItem, products } =
     useContext(AppContext);
-  // store itemname, quantity, total price and useremail
   const [item, setItem] = useState({});
-  const [cartProducts, setCartProducts] = useState([]);
-  console.log(user._id);
+  let total = 0;
   const orderUpdate = async () => {
     item.email = user.email;
     item._id = user._id;
     item.things = cartItem;
     setItem((prev) => ({ ...prev, item }));
-    setOrders((prev) => [...prev, item]);
-    setCartProducts();
-    // await axios.post("/order", {
-    //   uid: user._id,
-    //   products: cartItem.map(item => ({
-    //   name: item.name,
-    //   price: item.price
-    //   }))
-    // });
-
-    setCartItem(() => []);
+    products.forEach((product) => {
+      if (cartItem[product._id]) {
+        total += product.price * cartItem[product._id];
+      }
+    });
+    await axios
+      .post(`${BPATH}/orders/add`, {
+        uid: user._id,
+        products: Object.keys(cartItem),
+        orderTotal: total,
+      })
+      .then((res) => {
+        console.log(res.status);
+        setCartItem(() => []);
+        Navigate(`${FPATH}/orders`);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
-  const Navigate = useNavigate();
   return (
     <Container className="cart-container">
       <h1 className="px-lg-4 heading fw-bolder text-start">Cart</h1>
@@ -70,9 +77,8 @@ const Cart = () => {
                 <button
                   type="button"
                   className="btn btn-dark"
-                  onClick={() => {
-                    orderUpdate();
-                    Navigate(`${FPATH}/orders`);
+                  onClick={async () => {
+                    await orderUpdate();
                   }}
                 >
                   Submit Order

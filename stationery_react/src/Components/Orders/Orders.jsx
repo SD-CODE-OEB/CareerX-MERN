@@ -1,15 +1,24 @@
+import "./orders.css";
+import axios from "axios";
+import OrderItem from "./OrderItem";
+import Container from "../Container";
 import React, { useContext } from "react";
 import { AppContext } from "../../context";
-import Container from "../Container";
-import OrderItem from "./OrderItem";
-import "./orders.css";
 
 const Orders = () => {
-  const { orders, users, user } = useContext(AppContext);
-  const found = users.find((p) => p.email === user.email);
+  const BPATH = process.env.REACT_APP_BACKEND_APP_PATH;
+  const { orders, users, user, setOrders } = useContext(AppContext);
+  const found = users.find((u) => u._id === user._id);
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const ordersResponse = await axios.get(`${BPATH}/orders/all`);
+      setOrders(ordersResponse.data);
+    };
+    fetchData();
+  });
   if (found) {
     return (
-      <Container className="bg-dark-subtle">
+      <Container className="bg-dark-subtle overflow-y-scroll overflow-x-hidden scroll-show">
         <div className="row order-heading">
           <div className="col-lg-9 col-md-6 col-6">
             <h1 className="px-3 fw-bolder">Orders</h1>
@@ -22,8 +31,7 @@ const Orders = () => {
         {/* orders is an array to render in vDOM */}
         {orders
           .filter(
-            (orders) =>
-              orders.email === user.email && orders.email === found.email
+            (orders) => orders.uid === found._id && orders.uid === user._id
           )
           .map((orders, index) => {
             return <OrderItem order={orders} index={index} />;

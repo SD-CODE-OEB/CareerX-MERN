@@ -1,7 +1,12 @@
 import express from "express";
+import { signup, signin, showUsers, updateUserCart, AdminSignin, updateUserOrders, getUserCart } from "../controllers/userController.js";
+import authorize from "../middlewares/auth.js";
 const userRouter = express.Router();
-import { signup, signin, showUsers } from "../controllers/userController.js";
 userRouter.post("/signup", signup);
 userRouter.post("/signin", signin);
-userRouter.get("/showUser", showUsers);
+userRouter.get("/list", authorize, showUsers);
+userRouter.get('/cart/:uid', getUserCart);
+userRouter.post("/admin/signin", AdminSignin);
+userRouter.patch('/updateCart/:uid', updateUserCart);
+userRouter.patch('/updateOrder/:uid', updateUserOrders);
 export default userRouter;

@@ -1,22 +1,5 @@
-import productModel from "../models/productModel.js";
-import multer from "multer";
-import fs from "fs";
 import path from "path";
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const dir = "./static/images";
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    cb(null, dir);
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name + path.extname(file.originalname));
-  },
-});
-
-const upload = multer({ storage: storage });
+import productModel from "../models/productModel.js";
 
 const addProduct = async (req, res) => {
   const { name, price } = req.body;
@@ -36,11 +19,12 @@ const addProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   const id = req.params.pid;
-  const { name, price, url } = req.body;
+  const { name, price } = req.body;
+  const file = req.file ? `/static/images/${name}${path.extname(req.file.originalname)}` : req.body.url;
   try {
     const product = await productModel.findByIdAndUpdate(
       id,
-      { name: name, price: price, url: url },
+      { name: name, price: price, url: `/static/images/${name}${path.extname(file.originalname)}` },
       { new: true }
     );
     res.status(200).json(product);
@@ -71,4 +55,4 @@ const removeProduct = async (req, res) => {
   }
 };
 
-export { addProduct, showProducts, updateProduct, removeProduct, upload };
+export { addProduct, showProducts, updateProduct, removeProduct };

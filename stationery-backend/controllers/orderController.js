@@ -8,6 +8,21 @@ const showOrders = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+const userOrders = async (req, res) => {
+  try {
+    const uid = req.params.id;
+    if (uid) {
+      const orders = await orderModel.find({ uid: uid });
+      res.status(200).json(orders);
+    } else {
+      res.status(404).json({ message: "User ID not provided" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 const CreateOrder = async (req, res) => {
   try {
     const order = new orderModel(req.body);
@@ -31,4 +46,5 @@ const deleteOrder = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-export { CreateOrder, showOrders, deleteOrder };
+
+export { CreateOrder, showOrders, deleteOrder, userOrders };

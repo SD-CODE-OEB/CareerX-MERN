@@ -3,13 +3,15 @@ import {
   CreateOrder,
   deleteOrder,
   showOrders,
+  userOrders,
 } from "../controllers/orderController.js";
 
 const orderRouter = express.Router();
 
 orderRouter.get("/all", showOrders);
 orderRouter.post("/add", CreateOrder);
-orderRouter.delete("/cancel/:oid");
+orderRouter.get('/user/:id', userOrders);
+// orderRouter.delete("/cancel/:oid");
 orderRouter.delete("/delete/:oid", deleteOrder);
 
 export default orderRouter;
